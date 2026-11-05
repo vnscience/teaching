@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search</title>
+    <style>
+        .books {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .book {
+            display: inline-block;
+            background-color: antiquewhite;
+            box-shadow: 0 0 10px #000;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get" style="max-width: 600px; margin: 0 auto">
+        <fieldset>
+            <legend>Book search</legend>
+
+            <table>
+                <tr>
+                    <td><label for="title">Book title</label></td>
+                    <td><input type="text" name="title" id="title" placeholder="Book title"/>
+                        <input type="checkbox" name="exact" id="exact" checked> Exact match</td>
+                </tr>
+                <tr>
+                    <td><label for="price">Price</label></td>
+                    <td><input type="number" name="price" id="minPr" placeholder="From ...">
+                        <input type="number" name="price" id="maxPr" placeholder="to ...">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="category">Category</label>
+                    </td>
+                    <td>
+                        <select name="category" id="category">
+                            <option value="it">Information Technology</option>
+                            <option value="ai">Artificial Intelligent</option>
+                            <option value="cn">Computer Network</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="sort">Sort results</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="sort" id="sortAZ" checked> A-Z
+                        <input type="radio" name="sort" id="sortZA" > Z-A
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right">
+                        <input type="submit" value="Search" />
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset>
+    </form>
+
+    <div class="books">
+        <div class="book" style="text-align: center">
+            <img src="./images/book1.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book2.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book3.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book1.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book1.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book1.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book1.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book1.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+        <div class="book" style="text-align: center">
+            <img src="./images/book1.png" width="200px" alt="Book 01"> <br>
+            HTML &amp; CSS
+        </div>
+    </div>
+</body>
+</html>

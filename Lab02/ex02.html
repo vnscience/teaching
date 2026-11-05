@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 | Exercise 02</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico &display=swap">
+    <style>
+        * {box-sizing: border-box;}
+        body {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* header, nav, footer */
+        header, nav, footer {
+            background: linear-gradient(to bottom right, blue, lightblue, white);
+        }
+
+        /* header */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 80px;
+        }
+
+        .logo span {
+            font-family: 'Pacifico', cursive;
+            color: white;
+        }
+
+        .ads {
+            display: flex;
+            gap: 8px;
+            margin: 0 auto;
+        }
+
+        .ads div {
+            border: 1px dashed darkblue;
+            padding: 30px 12px;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .search input {
+            padding: 6px 8px;
+            width: 180px;
+        }
+
+        /* Navigation */ 
+        nav > ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav > ul > li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 14px 20px;
+        }
+
+        nav > ul > li:hover > a {
+            background-color: darkblue;
+            color: white;
+        }
+
+        /* dropdown menu */
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%; left: 0; z-index: 10;
+            min-width: 240px;
+            background: linear-gradient(white, lightblue);
+            box-shadow: 0 4px 8px #0003;
+            padding: 0px;
+        }
+
+        nav li:hover > ul, nav li:focus-within > ul {
+            display: block;
+        }
+
+        nav ul ul:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 40px;
+            border: 10px solid transparent;
+            border-top: 0;
+            border-bottom-color: white;
+        }
+
+        nav ul ul li {
+            border-bottom: 1px solid white;
+        }
+
+        nav ul ul a:hover {
+            background: lightblue;
+        }
+
+        /* --- MAIN --- */
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        aside {
+            width: 240px;
+            flex-shrink: 0;
+        }
+
+        aside h2 {
+            text-align: center;
+        }
+
+        aside li {
+            margin-bottom: 4px;
+            background: linear-gradient(lightblue, white);
+        }
+
+        aside a {
+            display: block;
+            padding: 14px 16px;
+        }
+
+        aside a:hover {
+            background: darkblue;
+            color: white;
+        }
+
+        .books {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .book {
+            text-align: center;
+        }
+
+        .book img {
+            width: 100%;
+            box-shadow: 4px 4px 6px #999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: darkblue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo"><img src="./images/logo.png" alt="Logo"><span>MY BOOKSTORE</span></a>
+        <div class="ads">
+            <div>Advertise here</div>
+            <div>Advertise here</div>
+            <div>Advertise here</div>
+        </div>
+        <form action="#" class="search">
+            <input type="search" name="search" id="search" placeholder="Search books...">
+        </form>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Book Categories</a>
+                <ul>
+                    <li><a href="#">IT Fundamentals</a></li>
+                    <li><a href="#">Software Engineering</a></li>
+                    <li><a href="#">Artificial Intelligence</a></li>
+                    <li><a href="#">Computer Networks</a></li>
+                    <li><a href="#">Internet of Things (IoT)</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Stationery</a></li>
+            <li><a href="#">Promotions</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <!-- Left side -->
+        <aside>
+            <h2>BOOK CATEGORIES</h2>
+            <ul>
+                <li><a href="#">IT Fundamentals</a></li>
+                <li><a href="#">Software Engineering</a></li>
+                <li><a href="#">Artificial Intelligence</a></li>
+                <li><a href="#">Computer Networks</a></li>
+                <li><a href="#">Internet of Things (IoT)</a></li>
+            </ul>
+        </aside>
+
+        <!-- Right side -->
+        <main class="books">
+            <div class="book">
+                <img src="./images/book1.png" alt="">
+                <h3>HTML &amp; CSS</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book2.png" alt="">
+                <h3>Javascript</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book3.png" alt="">
+                <h3>Java Programing</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book4.png" alt="">
+                <h3>Software Testing</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book5.png" alt="">
+                <h3>Discrete Math</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book6.png" alt="">
+                <h3>Python</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book7.png" alt="">
+                <h3>Database</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book8.png" alt="">
+                <h3>Networking</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book9.png" alt="">
+                <h3>AI Basics</h3>
+            </div>
+            <div class="book">
+                <img src="./images/book10.png" alt="">
+                <h3>Internet of Things</h3>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>My Bookstore &copy; 2026</footer>
+</body>
+</html>

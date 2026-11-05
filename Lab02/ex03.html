@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 | Exercise 03</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+        }
+
+        h1 {
+            font-size: 44px;
+            color: blue;
+            text-shadow: 0px 0px 4px lightblue;
+            text-align: center;
+        }
+
+        #search {
+            width: 100%;
+            padding: 15px 10px;
+        }
+
+        /* Products */ 
+        .products {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 10px auto;
+        }
+
+        .product {
+            position: relative;
+            border: 1px solid darkblue;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .close {
+            position:absolute;
+            top: 6px;
+            right: 10px;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#"><i class="fa-solid fa-mobile-screen"></i> Mobile</a></li>
+            <li><a href="#"><i class="fa-solid fa-tablet-screen-button"></i> Tablet</a></li>
+            <li><a href="#"><i class="fa-solid fa-desktop"></i> Desktop</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN -->
+    <main>
+        <h1>PRODUCT LIST</h1>
+        <input type="search" name="search" id="search" placeholder="Enter a keywork..." />
+        <div class="products">
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p1.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p2.png" alt="Galaxy Z Fold">
+                <h3>Galaxy Z Fold</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p3.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p4.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"></span><img src="./images/p5.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"></span><img src="./images/p6.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"></span><img src="./images/p7.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"></span><img src="./images/p8.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"></span><img src="./images/p9.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"></span><img src="./images/p10.png" alt="iPhone 13">
+                <h3>iPhone 13</h3>
+                <p>24,000,000 VND</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>Mobile Store &copy; 2026</footer>
+</body>
+</html>

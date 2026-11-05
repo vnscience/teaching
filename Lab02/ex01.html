@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 | Exercise 01</title>
+    <style>
+        * { box-sizing: border-box; }
+        
+        body, a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            color: gold;
+            text-shadow: 2px 2px 4px red;
+            margin: 16px 0px;
+        }
+
+        a {
+            text-decoration: none; color: blue;
+        }
+
+        /* ---- MENU ---- */
+        nav {
+            background: radial-gradient(gold, lightyellow);
+        }
+
+        nav > ul {
+            list-style: none; margin: 0; padding: 0; display: flex;
+        }
+
+        nav > ul > li {
+            position: relative;
+            border-right: 1px solid darkblue;
+        }
+
+        nav > ul > li:last-child {
+            margin-left: auto;
+            border-right: none;
+            border-left: 1px solid darkblue;
+        }
+
+        nav a {
+            display: block; padding: 28px 24px;
+        }
+
+        /* --- Sub menu --- */
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%; left: 0;
+            z-index: 10;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background: radial-gradient(gold, lightyellow);
+        }
+
+        nav li:hover > ul, li:focus-within > ul {
+            display: block;
+        }
+
+        nav ul ul a {
+            padding: 24px;
+        }
+
+        nav ul ul a:hover {
+            color: darkblue;
+            font-weight: bold;
+        }
+
+        /* --- Content --- */
+        main {
+            margin: 20px 0px;
+            background: radial-gradient(gold, lightyellow, white);
+        }
+
+        article {
+            padding: 12px 10px; border-bottom: 1px solid darkblue;
+        }
+
+        article:last-child {
+            border-bottom: none;
+        }
+
+        article::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        article img {
+            float: left;
+            width: 90px;
+            margin-right: 12px;
+        }
+
+        article p {
+            margin: 0; font-size: 18px; overflow: hidden;
+            text-align: justify;
+        }
+
+        footer {
+            background-color: gold;
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Title -->
+    <h1>PROGRAMING LANGUAGE</h1>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Programing Languages &darr;</a>
+                <ul>
+                    <li><a href="#cpp">C++</a></li>
+                    <li><a href="#python">Python</a></li>
+                    <li><a href="#java">Java</a></li>
+                    <li><a href="#ruby">Ruby</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Quiz Test</a></li>
+            <li><a href="#">About us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Articles -->
+    <main>
+        <article id="cpp">
+            <img src="./images/cpp.png" alt="CPP">
+            <p>C++ is a cross-platform language that can be used to create high-performance applications. C++ was developed by Bjarne Stroustrup, as an extension to the C language. C++ gives programmers a high level of control over system resources and memory.</p>
+        </article>
+        <article id="python">
+            <img src="./images/python.png" alt="Python">
+            <p>Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.</p>
+        </article>
+        <article id="java">
+            <img src="./images/java.png" alt="Java">
+            <p>Java is a widely-used programming language for coding web applications. It has been a popular choice among developers for over two decades, with millions of Java applications in use today. Java is a multi-platform, object-oriented, and network-centric language that can be used as a platform in itself. It is a fast, secure, reliable programming language for coding everything from mobile apps and enterprise software to big data applications and server-side technologies.</p>
+        </article>
+        <article id="ruby">
+            <img src="./images/ruby.png" alt="Ruby">
+            <p>Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>Web Design &copy; Programing Language</footer>
+</body>
+</html>
