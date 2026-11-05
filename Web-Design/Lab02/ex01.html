@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 02 | Exercise 01</title>
+    <title>Programming Language</title>
     <style>
-        * { box-sizing: border-box; }
-        
+        * {
+            box-sizing: border-box;
+        }
+
         body, a {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -22,20 +24,23 @@
             font-size: 48px;
             color: gold;
             text-shadow: 2px 2px 4px red;
-            margin: 16px 0px;
         }
 
         a {
-            text-decoration: none; color: blue;
+            text-decoration: none;
+            color: blue;
         }
 
-        /* ---- MENU ---- */
+        /* Navigation */
         nav {
             background: radial-gradient(gold, lightyellow);
         }
 
         nav > ul {
-            list-style: none; margin: 0; padding: 0; display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
         }
 
         nav > ul > li {
@@ -50,14 +55,16 @@
         }
 
         nav a {
-            display: block; padding: 28px 24px;
+            display: block;
+            padding: 28px 24px;
         }
 
-        /* --- Sub menu --- */
+        /* Sub menu */
         nav ul ul {
             display: none;
             position: absolute;
-            top: 100%; left: 0;
+            top: 100%;
+            left: 0;
             z-index: 10;
             list-style: none;
             margin: 0;
@@ -79,14 +86,15 @@
             font-weight: bold;
         }
 
-        /* --- Content --- */
+        /* Content */
         main {
-            margin: 20px 0px;
+            margin: 20px 0;
             background: radial-gradient(gold, lightyellow, white);
         }
 
         article {
-            padding: 12px 10px; border-bottom: 1px solid darkblue;
+            padding: 12px 10px;
+            border-bottom: 1px solid darkblue;
         }
 
         article:last-child {
@@ -95,8 +103,8 @@
 
         article::after {
             content: "";
-            display: block;
             clear: both;
+            display: block;
         }
 
         article img {
@@ -106,28 +114,31 @@
         }
 
         article p {
-            margin: 0; font-size: 18px; overflow: hidden;
+            margin: 0;
+            font-size: 18px;
+            overflow: hidden;
             text-align: justify;
         }
 
+        /* Footer */
         footer {
-            background-color: gold;
+            background: gold;
             text-align: center;
-            padding: 40px;
+            padding: 20px 0px;
             font-size: 18px;
         }
-
     </style>
 </head>
 <body>
-    <!-- Title -->
+    <!-- Huge title -->
     <h1>PROGRAMING LANGUAGE</h1>
 
     <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Programing Languages &darr;</a>
+            <li>
+                <a href="#">Programing Languages &darr;</a>
                 <ul>
                     <li><a href="#cpp">C++</a></li>
                     <li><a href="#python">Python</a></li>
@@ -140,22 +151,22 @@
         </ul>
     </nav>
 
-    <!-- Articles -->
+    <!-- Main content -->
     <main>
         <article id="cpp">
-            <img src="./images/cpp.png" alt="CPP">
-            <p>C++ is a cross-platform language that can be used to create high-performance applications. C++ was developed by Bjarne Stroustrup, as an extension to the C language. C++ gives programmers a high level of control over system resources and memory.</p>
+            <img src="./images/cpp.png" alt="C++"/>
+            <p>C++ is a cross-platform language that can be used to create highperformance applications. C++ was developed by Bjarne Stroustrup, as an extension to the C language. C++ gives programmers a high level of control over system resources and memory.</p>
         </article>
         <article id="python">
-            <img src="./images/python.png" alt="Python">
-            <p>Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.</p>
+            <img src="./images/python.png" alt="Python"/>
+            <p>Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to objectoriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.</p>
         </article>
         <article id="java">
-            <img src="./images/java.png" alt="Java">
-            <p>Java is a widely-used programming language for coding web applications. It has been a popular choice among developers for over two decades, with millions of Java applications in use today. Java is a multi-platform, object-oriented, and network-centric language that can be used as a platform in itself. It is a fast, secure, reliable programming language for coding everything from mobile apps and enterprise software to big data applications and server-side technologies.</p>
+            <img src="./images/java.png" alt="Java"/>
+            <p>Java is a widely-used programming language for coding web applications. It has been a popular choice among developers for over two decades, with millions of Java applications in use today. Java is a multi-platform, objectoriented, and network-centric language that can be used as a platform in itself. It is a fast, secure, reliable programming language for coding everything from mobile apps and enterprise software to big data applications and server-side technologies.</p>
         </article>
         <article id="ruby">
-            <img src="./images/ruby.png" alt="Ruby">
+            <img src="./images/ruby.png" alt="Ruby"/>
             <p>Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.</p>
         </article>
     </main>
