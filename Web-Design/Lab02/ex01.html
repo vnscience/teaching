@@ -95,16 +95,11 @@
         article {
             padding: 12px 10px;
             border-bottom: 1px solid darkblue;
+            display: flow-root;
         }
 
         article:last-child {
             border-bottom: none;
-        }
-
-        article::after {
-            content: "";
-            clear: both;
-            display: block;
         }
 
         article img {
@@ -113,11 +108,26 @@
             margin-right: 12px;
         }
 
+        /* article::after {
+            content: "";
+            clear: both;
+            display: block;
+        } */
+
         article p {
             margin: 0;
             font-size: 18px;
             overflow: hidden;
             text-align: justify;
+        }
+
+        @media (max-width: 600px) {
+            article img {
+                width: 70px;
+            }
+            article p {
+                overflow: visible;
+            }
         }
 
         /* Footer */
