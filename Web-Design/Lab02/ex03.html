@@ -12,7 +12,10 @@
         }
 
         body {
-
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         h1 {
@@ -25,6 +28,32 @@
         #search {
             width: 100%;
             padding: 15px 10px;
+        }
+
+        /* nav */
+        nav {
+            margin: 0;
+            background: linear-gradient(to bottom right, lightblue, blue);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: start;
+            list-style: none;
+            gap: 15px;
+            padding: 0px;
+        }
+
+        nav ul li {
+            border-right: 1px solid navy;
+            width: 200px;
+            text-align: center;
+            padding: 15px 0px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
         }
 
         /* Products */ 
@@ -42,11 +71,26 @@
             padding: 10px;
         }
 
+        .product > h3, .product p {
+            margin: 5px 0px;
+        }
+
         .close {
-            position:absolute;
+            position: absolute;
             top: 6px;
             right: 10px;
             color: darkblue;
+        }
+
+        .product img { width: 100%; transition: transform 0.3s; }
+        .product img:hover { transform: scale(0.8); }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, blue, white);
+            padding: 20px 0px;
+            text-align: center;
+            color: white;
         }
     </style>
 </head>
@@ -74,47 +118,47 @@
             <div class="product">
                 <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p2.png" alt="Galaxy Z Fold">
                 <h3>Galaxy Z Fold</h3>
-                <p>24,000,000 VND</p>
+                <p>41,000,000 VND</p>
             </div>
             <div class="product">
                 <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p3.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
-                <p>24,000,000 VND</p>
+                <h3>Galaxy Z Flip</h3>
+                <p>25,000,000 VND</p>
             </div>
             <div class="product">
                 <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p4.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
+                <h3>iPhone 14 Pro</h3>
+                <p>28,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p5.png" alt="iPhone 13">
+                <h3>iPhone SE</h3>
+                <p>12,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p6.png" alt="iPhone 13">
+                <h3>Galaxy Tab S7</h3>
+                <p>15,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p7.png" alt="iPhone 13">
+                <h3>iPad Pro</h3>
+                <p>27,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p8.png" alt="iPhone 13">
+                <h3>iPhone 13 Pro</h3>
+                <p>25,000,000 VND</p>
+            </div>
+            <div class="product">
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p9.png" alt="iPhone 13">
+                <h3>Galaxy S23</h3>
                 <p>24,000,000 VND</p>
             </div>
             <div class="product">
-                <span class="close"></span><img src="./images/p5.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
-                <p>24,000,000 VND</p>
-            </div>
-            <div class="product">
-                <span class="close"></span><img src="./images/p6.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
-                <p>24,000,000 VND</p>
-            </div>
-            <div class="product">
-                <span class="close"></span><img src="./images/p7.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
-                <p>24,000,000 VND</p>
-            </div>
-            <div class="product">
-                <span class="close"></span><img src="./images/p8.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
-                <p>24,000,000 VND</p>
-            </div>
-            <div class="product">
-                <span class="close"></span><img src="./images/p9.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
-                <p>24,000,000 VND</p>
-            </div>
-            <div class="product">
-                <span class="close"></span><img src="./images/p10.png" alt="iPhone 13">
-                <h3>iPhone 13</h3>
-                <p>24,000,000 VND</p>
+                <span class="close"><i class="fa-solid fa-xmark"></i></span><img src="./images/p10.png" alt="iPhone 13">
+                <h3>Pixel 8</h3>
+                <p>18,000,000 VND</p>
             </div>
         </div>
     </main>
