@@ -12,9 +12,9 @@
         }
 
         body {
+            max-width: 1200px;
+            padding: 0px;
             margin: 0 auto;
-            padding: 0;
-            max-width: 1000px;
             font-family: Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -23,6 +23,7 @@
             align-items: center;
             gap: 20px;
             padding: 20px;
+            background: linear-gradient(blueviolet, blue);
         }
 
         nav .right {
@@ -33,32 +34,38 @@
             margin-right: 6px;
         }
 
-        a {
+        nav a {
             text-decoration: none;
+            color: white;
         }
 
+        /* Header */
         header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 10px 20px;
+            background: linear-gradient(to bottom right, blue, lightblue, white, lightblue, blue);
         }
 
-        header img {
-            width: 300px;
+        header h1 {
+            color: blue;
+            text-shadow: 2px 2px 5px #eee;
         }
 
+        /* Container */
         .container {
             display: flex;
             align-items: flex-start;
         }
 
         .container .ad {
-            width: 120px;
-            margin: 100px 10px;
-            padding: 100px 10px;
-            border-radius: 10px;
             background-color: blue;
             color: white;
+            margin: 180px 15px;
+            padding: 180px 10px;
+            border-radius: 10px;
+            width: 120px;
             text-align: center;
         }
 
@@ -66,34 +73,56 @@
             flex: 1;
         }
 
-        section {
-            margin-bottom: 50px;
-        }
-
         section h2 {
             background-color: darkblue;
             color: white;
             padding: 10px;
-            margin: 0;
             border-radius: 10px 10px 0 0;
+            margin: 0;
         }
 
-        .topic {
+        section .topic {
             display: flex;
+            gap: 20px;
+            background-color: lightblue;
+            border-bottom: 1px solid blue;
             align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid darkblue;
-            background-color: aqua;
         }
 
-        .topic:last-child {
-            border-radius: 0 0 10px 10px;
+        section .topic:last-child {
             border: none;
+            border-radius: 0 0 10px 10px;
         }
 
-        .topic img {
-            width: 50px;
-            height: auto;
+        section {
+            margin-top: 50px;
+        }
+
+        section .topic img {
+            background: radial-gradient(white, blue);
+            border-radius: 50%;
+            width: 100px;
+            margin: 10px;
+        }
+
+        section .topic a {
+            flex: 1;
+        }
+
+        section .topic .stats {
+            width: 200px;
+        }
+
+        section .topic .last {
+            width: 250px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: darkblue;
+            color: white;
+            padding: 20px 5px;
         }
     </style>
 </head>
