@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 | Exercise 04</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(#0a6cff, #7ab3d6);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* advertising banners */
+        .ad {
+            width: 150px;
+            background-color: #0a6cff;
+            padding: 100px 10px;
+            margin: 0 auto;
+            border: 1px dotted darkblue;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Main Column */
+        main {
+            flex: 1;
+            max-width: 950px;
+            background-color: darkblue;
+        }
+
+        header {
+            position: relative;
+            height: 130px;
+            background: #7ab3d6;
+        }
+
+        header img {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            width: 90px;
+        }
+
+        header h1 {
+            margin: 0;
+            padding-top: 40px;
+            text-align: center;
+            color: red;
+            text-shadow: 2px 2px 5px pink;
+        }
+
+        header .user {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            color: blue;
+        }
+
+        .tabs {
+            position: absolute;
+            right: 0px;
+            bottom: 0;
+            display: flex;
+            gap: 5px;
+        }
+
+        .tabs a {
+            padding: 5px 10px;
+            background: linear-gradient(darkblue, #0a6cff);
+            color: lightblue;
+            font-size: 15px;
+            border-radius: 10px 10px 0 0;
+            text-decoration: none;
+        }
+
+        .tabs a:hover {
+            color: white;
+        }
+
+        /* Form add task */
+        form {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            padding: 8px;
+            background-color: #0a6cff;
+        }
+
+        form input {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        #content {
+            width: 480px;
+        }
+
+        button {
+            padding: 6px 12px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Task */
+        .task {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px;
+            color: white;
+            border-bottom: 1px solid white;
+        }
+
+        .task img {
+            width: 52px;
+        }
+
+        .task .title {
+            flex: 1;
+        }
+
+        .task .date {
+            width: 150px;
+        }
+
+        .task button {
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            overflow: hidden;
+            background-color: aquamarine;
+        }
+
+        footer p {
+            white-space: nowrap;
+            animation: move 15s linear infinite;
+        }
+
+        @keyframes move {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(100vw);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="ad">CONTACT US<br>FOR ADS</div>
+        <main>
+            <header>
+                <img src="./images/calendar.png" alt="calendar">
+                <h1>WORK SCHEDULE</h1>
+                <span class="user"><i class="fa-solid fa-user"></i></span>
+                <nav class="tabs">
+                    <a href="#">Personal</a>
+                    <a href="#">Organization</a>
+                    <a href="#">Feedback</a>
+                </nav>
+            </header>
+
+            <form action="#">
+                <input type="text" name="content" id="content" placeholder="Task description">
+                <input type="text" name="date" id="date" placeholder="Date (dd/mm/yyyy)">
+                <button type="button">Add</button>
+            </form>
+
+            <div id="tasks">
+                <div class="task">
+                    <img src="./images/task.png" alt="Task">
+                    <span class="title">Join the "Blood Donation Day" volunteer program</span>
+                    <span class="date">10/10/2026</span>
+                    <button>Delete</button>
+                    <button>Update</button>
+                </div>
+                <div class="task">
+                    <img src="./images/task.png" alt="Task">
+                    <span class="title">Review for the final exams</span>
+                    <span class="date">12/12/2026</span>
+                    <button>Delete</button>
+                    <button>Update</button>
+                </div>
+                <div class="task">
+                    <img src="./images/task.png" alt="Task">
+                    <span class="title">Present a topic in the Web Applications course</span>
+                    <span class="date">09/09/2026</span>
+                    <button>Delete</button>
+                    <button>Update</button>
+                </div>
+                <div class="task">
+                    <img src="./images/task.png" alt="Task">
+                    <span class="title">Join the "Green Summer" campaign</span>
+                    <span class="date">08/08/2026</span>
+                    <button>Delete</button>
+                    <button>Update</button>
+                </div>
+                <div class="task">
+                    <img src="./images/task.png" alt="Task">
+                    <span class="title">Attend the IT job fair</span>
+                    <span class="date">08/09/2026</span>
+                    <button>Delete</button>
+                    <button>Update</button>
+                </div>
+                <div class="task">
+                    <img src="./images/task.png" alt="Task">
+                    <span class="title">Workshop: Career orientation in IT</span>
+                    <span class="date">25/11/2026</span>
+                    <button>Delete</button>
+                    <button>Update</button>
+                </div>
+            </div>
+        </main>
+        <div class="ad">CONTACT US<br>FOR ADS</div>
+    </div>
+
+    <footer>
+        <p>Success is a lousy teacher. It seduces smart people into thinking they can't lose. - Bill Gates</p>
+    </footer>
+</body>
+
+</html>
