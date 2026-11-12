@@ -1,4 +1,4 @@
-// Danh sách sản phẩm
+// Product list
 const items = [
     { name: 'Apple', price: 1.2 },
     { name: 'Banana', price: 0.5 },
@@ -27,13 +27,13 @@ const items = [
     { name: 'Melon', price: 3.7 }
 ];
 
-// Hàm render danh sách
+// Render Product List Function
 function renderList(filteredItems) {
     const list = document.getElementById('itemList');
     list.innerHTML = '';
 
     if (filteredItems.length === 0) {
-        list.innerHTML = '<li>Không có sản phẩm phù hợp.</li>';
+        list.innerHTML = '<li>No available product!</li>';
         return;
     }
 
@@ -44,7 +44,7 @@ function renderList(filteredItems) {
     });
 }
 
-// Hàm xử lý tìm kiếm, lọc và sắp xếp
+// Function for searching, filtering and sorting
 function handleFilter() {
     const searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
 
@@ -52,20 +52,20 @@ function handleFilter() {
 
     const sortType = document.getElementById('sortSelect').value;
 
-    // Sao chép danh sách ban đầu
+    // Copy the original list item
     let filtered = [...items];
 
-    // Tìm kiếm theo tên
+    // Search by product name
     filtered = filtered.filter(item =>
         item.name.toLowerCase().includes(searchQuery)
     );
 
-    // Lọc theo giá tối thiểu
+    // Filter by minimum price
     filtered = filtered.filter(item =>
         item.price >= minPrice
     );
 
-    // Sắp xếp theo giá
+    // Sort by price
     filtered.sort((a, b) => {
         if (sortType === 'asc') {
             return a.price - b.price;
@@ -74,33 +74,33 @@ function handleFilter() {
         }
     });
 
-    // Hiển thị danh sách
+    // Render list item
     renderList(filtered);
 }
 
-// Khi nhập từ khóa hoặc giá
+// When inputing search kw or min price
 document.getElementById('searchInput')
     .addEventListener('input', handleFilter);
 
 document.getElementById('minPriceInput')
     .addEventListener('input', handleFilter);
 
-// Khi thay đổi kiểu sắp xếp
+// When changing sorting-type
 document.getElementById('sortSelect')
     .addEventListener('change', handleFilter);
 
-// Ngăn form reload trang
+// Prevent form reload automatically
 document.getElementById('filterForm')
     .addEventListener('submit', function (e) {
         e.preventDefault();
         handleFilter();
     });
 
-// Khi nhấn nút Làm mới
+// When hitting the reset button
 document.getElementById('filterForm')
     .addEventListener('reset', function () {
         setTimeout(handleFilter, 0);
     });
 
-// Hiển thị ban đầu
+// Render list item on page load
 handleFilter();
