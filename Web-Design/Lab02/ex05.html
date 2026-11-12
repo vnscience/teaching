@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 | Exercise 05</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0 auto;
+            padding: 0;
+            max-width: 1000px;
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        nav .right {
+            margin-left: auto;
+        }
+
+        nav i {
+            margin-right: 6px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            width: 300px;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .container .ad {
+            width: 120px;
+            margin: 100px 10px;
+            padding: 100px 10px;
+            border-radius: 10px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+        }
+
+        .container main {
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            background-color: darkblue;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .topic {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid darkblue;
+            background-color: aqua;
+        }
+
+        .topic:last-child {
+            border-radius: 0 0 10px 10px;
+            border: none;
+        }
+
+        .topic img {
+            width: 50px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="#">Topics</a>
+        <a href="#">Programing Languages</a>
+        <a href="#">Contact</a>
+        <a href="#" class="right"><i class="fa-solid fa-bell"></i></a>
+        <a href="#"><i class="fa-solid fa-user"></i></a>
+    </nav>
+    <header>
+        <img src="./images/forum-logo.png" alt="Logo">
+        <h1>IT FORUM</h1>
+    </header>
+
+    <div class="container">
+        <div class="ad left">CONTACT US FOR ADS</div>
+        <main>
+            <section>
+                <h2>PRORAMMING FUNDAMENTALS</h2>
+                <div class="topic">
+                    <img src="./images/avatar-male.png" alt="Avatar" class="avatar">
+                    <a href="#" class="name">Variables and data types</a>
+                    <ul class="stats">
+                        <li>Views: 50</li>
+                        <li>Comments: 20</li>
+                    </ul>
+                    <p class="last">Latest comment by <a href="#">Alex Nguyen</a> 30 minutes ago.</p>
+                </div>
+                <div class="topic">
+                    <img src="./images/avatar-female.png" alt="Avatar" class="avatar">
+                    <a href="#" class="name">Variables and data types</a>
+                    <ul class="stats">
+                        <li>Views: 50</li>
+                        <li>Comments: 20</li>
+                    </ul>
+                    <p class="last">Latest comment by <a href="#">Alex Nguyen</a> 30 minutes ago.</p>
+                </div>
+                <div class="topic">
+                    <img src="./images/avatar-male.png" alt="Avatar" class="avatar">
+                    <a href="#" class="name">Variables and data types</a>
+                    <ul class="stats">
+                        <li>Views: 50</li>
+                        <li>Comments: 20</li>
+                    </ul>
+                    <p class="last">Latest comment by <a href="#">Alex Nguyen</a> 30 minutes ago.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>PRORAMMING TECHNIQUES</h2>
+                <div class="topic">
+                    <img src="./images/avatar-male.png" alt="Avatar" class="avatar">
+                    <a href="#" class="name">Recursion</a>
+                    <ul class="stats">
+                        <li>Views: 50</li>
+                        <li>Comments: 20</li>
+                    </ul>
+                    <p class="last">Latest comment by <a href="#">Alex Nguyen</a> 30 minutes ago.</p>
+                </div>
+                <div class="topic">
+                    <img src="./images/avatar-female.png" alt="Avatar" class="avatar">
+                    <a href="#" class="name">Pointers</a>
+                    <ul class="stats">
+                        <li>Views: 50</li>
+                        <li>Comments: 20</li>
+                    </ul>
+                    <p class="last">Latest comment by <a href="#">Alex Nguyen</a> 30 minutes ago.</p>
+                </div>
+                <div class="topic">
+                    <img src="./images/avatar-female.png" alt="Avatar" class="avatar">
+                    <a href="#" class="name">Structs</a>
+                    <ul class="stats">
+                        <li>Views: 50</li>
+                        <li>Comments: 20</li>
+                    </ul>
+                    <p class="last">Latest comment by <a href="#">Alex Nguyen</a> 30 minutes ago.</p>
+                </div>
+            </section>
+        </main>
+        <div class="ad right">CONTACT US FOR ADS</div>
+    </div>
+
+    <footer>IT Forum &copy; 2026</footer>
+</body>
+</html>
