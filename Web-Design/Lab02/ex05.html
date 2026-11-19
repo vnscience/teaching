@@ -18,12 +18,13 @@
             font-family: Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Nav */
         nav {
             display: flex;
             align-items: center;
             gap: 20px;
             padding: 20px;
-            background: linear-gradient(blueviolet, blue);
+            background: linear-gradient(to bottom right, blue, lightblue,white, lightblue, blue);
         }
 
         nav .right {
@@ -36,7 +37,11 @@
 
         nav a {
             text-decoration: none;
-            color: white;
+            color: blue;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
         }
 
         /* Header */
@@ -45,42 +50,55 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
-            background: linear-gradient(to bottom right, blue, lightblue, white, lightblue, blue);
+            background: linear-gradient(to bottom right, blue, lightblue,white, lightblue, blue);
         }
 
         header h1 {
+            font-size: 54px;
             color: blue;
-            text-shadow: 2px 2px 5px #eee;
+            text-shadow: 2px 2px 5px white;
         }
 
         /* Container */
         .container {
             display: flex;
             align-items: flex-start;
+            gap: 10px;
         }
 
         .container .ad {
-            background-color: blue;
+            background: linear-gradient(blue, darkblue);
             color: white;
-            margin: 180px 15px;
-            padding: 180px 10px;
-            border-radius: 10px;
             width: 120px;
+            padding: 80px 5px;
             text-align: center;
+            border-radius: 10px;
+            position: fixed;
+            top: calc(50vh - 80px);
+        }
+
+        .container .ad.left {
+            left: 4px;
+        }
+
+        .container .ad.right {
+            right: 4px;
         }
 
         .container main {
             flex: 1;
+            margin: 20px 140px;
         }
 
-        section h2 {
+        .container main h2 {
             background-color: darkblue;
             color: white;
-            padding: 10px;
             border-radius: 10px 10px 0 0;
-            margin: 0;
+            padding: 10px;
+            margin: 30px 0 0 0;
         }
 
+        /* Topic */
         section .topic {
             display: flex;
             gap: 20px;
@@ -90,22 +108,18 @@
         }
 
         section .topic:last-child {
-            border: none;
+            border-bottom: none;
             border-radius: 0 0 10px 10px;
         }
 
-        section {
-            margin-top: 50px;
-        }
-
         section .topic img {
-            background: radial-gradient(white, blue);
             border-radius: 50%;
+            background: radial-gradient(white, blue);
             width: 100px;
             margin: 10px;
         }
 
-        section .topic a {
+        section .topic .name {
             flex: 1;
         }
 
@@ -119,10 +133,11 @@
 
         /* Footer */
         footer {
-            text-align: center;
+            margin-top: 20px;
             background-color: darkblue;
             color: white;
-            padding: 20px 5px;
+            text-align: center;
+            padding: 20px 0;
         }
     </style>
 </head>

@@ -31,13 +31,13 @@
         /* advertising banners */
         .ad {
             width: 150px;
-            background-color: #0a6cff;
-            padding: 100px 10px;
-            margin: 0 auto;
             border: 1px dotted darkblue;
+            background: #0a6cff;
+            padding: 100px 10px;
             text-align: center;
             color: white;
             font-size: 20px;
+            margin: 0 auto;
         }
 
         /* Main Column */
@@ -55,8 +55,8 @@
 
         header img {
             position: absolute;
-            left: 20px;
             top: 15px;
+            left: 20px;
             width: 90px;
         }
 
@@ -64,20 +64,20 @@
             margin: 0;
             padding-top: 40px;
             text-align: center;
-            color: red;
+            color: darkred;
             text-shadow: 2px 2px 5px pink;
         }
 
         header .user {
             position: absolute;
             top: 6px;
-            right: 8px;
+            right: 10px;
             color: blue;
         }
 
         .tabs {
             position: absolute;
-            right: 0px;
+            right: 0;
             bottom: 0;
             display: flex;
             gap: 5px;
@@ -85,11 +85,11 @@
 
         .tabs a {
             padding: 5px 10px;
-            background: linear-gradient(darkblue, #0a6cff);
+            background: linear-gradient(to bottom, darkblue, #0a6cff);
             color: lightblue;
+            text-decoration: none;
             font-size: 15px;
             border-radius: 10px 10px 0 0;
-            text-decoration: none;
         }
 
         .tabs a:hover {
@@ -108,17 +108,19 @@
         form input {
             padding: 8px;
             border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        #content {
+        form input#content {
             width: 480px;
         }
 
         button {
             padding: 6px 12px;
-            background-color: blue;
+            border-radius: 5px;
             color: white;
             border: none;
+            background-color: blue;
             cursor: pointer;
             font-weight: bold;
         }
@@ -130,11 +132,11 @@
             gap: 8px;
             padding: 6px;
             color: white;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid #eee;
         }
 
         .task img {
-            width: 52px;
+            width: 50px;
         }
 
         .task .title {
@@ -151,14 +153,16 @@
 
         /* Footer */
         footer {
-            margin-top: 50px;
             overflow: hidden;
-            background-color: aquamarine;
         }
 
         footer p {
             white-space: nowrap;
-            animation: move 15s linear infinite;
+            animation: move 15s linear infinite paused;
+        }
+
+        footer:hover p, footer:focus-within p {
+            animation-play-state: running;
         }
 
         @keyframes move {
@@ -242,7 +246,7 @@
         <div class="ad">CONTACT US<br>FOR ADS</div>
     </div>
 
-    <footer>
+    <footer tabindex="0" aria-label="Footer quote. Focus to animate; move away to pause">
         <p>Success is a lousy teacher. It seduces smart people into thinking they can't lose. - Bill Gates</p>
     </footer>
 </body>
