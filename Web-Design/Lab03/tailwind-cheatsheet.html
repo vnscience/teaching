@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind v4 Explorer</title>
+  <meta name="description" content="Search Tailwind CSS v4 utility classes by name, CSS property or English meaning.">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+
+<header class="border-b border-slate-200 bg-white">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <a href="#" class="flex items-center gap-3">
+      <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-white font-bold">T</div>
+      <div>
+        <h1 class="font-bold tracking-tight">Tailwind Explorer</h1>
+        <p class="text-xs text-slate-500">CSS Utility Search</p>
+      </div>
+    </a>
+    <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+      Tailwind CSS v4
+    </span>
+  </div>
+</header>
+
+<main class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+
+  <section class="mb-10">
+    <span class="mb-3 inline-block rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
+      DEVELOPER TOOL
+    </span>
+    <h2 class="mb-3 text-3xl font-bold tracking-tight md:text-5xl">
+      Find the class.<br>
+      <span class="text-indigo-600">Understand the meaning.</span>
+    </h2>
+    <p class="max-w-2xl text-slate-500 leading-relaxed">
+      Search Tailwind CSS classes by utility name, CSS property,
+      or natural language. Learn what each class does.
+    </p>
+  </section>
+
+  <section class="mb-8">
+    <div class="relative">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+
+      <input id="search"
+        type="search"
+        autocomplete="off"
+        placeholder="e.g. center items, padding, flex, text size..."
+        class="w-full rounded-2xl border border-slate-200 bg-white py-4 pl-12 pr-4 text-base outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100">
+    </div>
+
+    <div class="mt-3 flex flex-wrap gap-2" id="categories"></div>
+  </section>
+
+  <section class="mb-6 flex items-center justify-between">
+    <p id="resultCount" class="text-sm text-slate-500"></p>
+    <button id="clear" class="text-sm text-indigo-600 hover:text-indigo-800">
+      Clear search
+    </button>
+  </section>
+
+  <section id="results" class="grid gap-4 md:grid-cols-2"></section>
+
+  <section id="empty" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
+    <h3 class="font-semibold text-lg">No matching classes found</h3>
+    <p class="mt-2 text-sm text-slate-500">
+      Try another keyword, CSS property or English description.
+    </p>
+  </section>
+
+  <section class="mt-12 rounded-2xl bg-slate-900 p-6 text-white md:p-8">
+    <h3 class="mb-2 text-xl font-bold">How to read Tailwind classes</h3>
+    <p class="mb-5 text-sm leading-relaxed text-slate-300">
+      Tailwind utilities can be combined. Prefixes modify when or where
+      a utility is applied. Arbitrary values allow custom CSS values.
+    </p>
+    <div class="overflow-x-auto">
+      <code class="text-sm text-indigo-300">
+        flex items-center justify-between p-4 md:p-8 hover:bg-blue-500
+      </code>
+    </div>
+    <div class="mt-5 grid gap-3 text-sm md:grid-cols-3">
+      <div class="rounded-xl bg-white/10 p-3">
+        <strong>Utilities</strong>
+        <p class="mt-1 text-slate-300">Compose multiple classes.</p>
+      </div>
+      <div class="rounded-xl bg-white/10 p-3">
+        <strong>Variants</strong>
+        <p class="mt-1 text-slate-300">Responsive and state modifiers.</p>
+      </div>
+      <div class="rounded-xl bg-white/10 p-3">
+        <strong>Arbitrary values</strong>
+        <p class="mt-1 text-slate-300">Use custom CSS values.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-slate-200 bg-white py-6">
+  <div class="mx-auto max-w-6xl px-5 text-sm text-slate-500">
+    Tailwind CSS v4 Explorer · Community learning tool ·
+    <a href="https://tailwindcss.com/docs" target="_blank"
+       rel="noopener noreferrer" class="text-indigo-600 hover:underline">
+      Official Documentation
+    </a>
+  </div>
+</footer>
+
+<script>
+const data = [
+  // Layout
+  ["block","Layout","Displays an element as a block, taking the full available width by default.","display: block;","display, layout, full width, block"],
+  ["inline","Layout","Displays an element inline with surrounding text.","display: inline;","display, layout, inline text"],
+  ["inline-block","Layout","Displays an element inline while allowing width and height to be set.","display: inline-block;","display, inline, width, height"],
+  ["hidden","Layout","Hides an element from the layout and rendering.","display: none;","hide, invisible, remove, display"],
+  ["flex","Flexbox","Creates a flex container for arranging items along an axis.","display: flex;","flexbox, layout, horizontal, vertical, container"],
+  ["inline-flex","Flexbox","Creates an inline flex container.","display: inline-flex;","flexbox, inline, container"],
+  ["flex-row","Flexbox","Arranges flex items horizontally from left to right.","flex-direction: row;","horizontal, direction, row"],
+  ["flex-row-reverse","Flexbox","Arranges flex items horizontally in reverse order.","flex-direction: row-reverse;","horizontal, reverse, direction"],
+  ["flex-col","Flexbox","Arranges flex items vertically from top to bottom.","flex-direction: column;","vertical, column, direction"],
+  ["flex-col-reverse","Flexbox","Arranges flex items vertically in reverse order.","flex-direction: column-reverse;","vertical, reverse, direction"],
+  ["flex-wrap","Flexbox","Allows flex items to wrap onto multiple lines.","flex-wrap: wrap;","wrap, responsive, flex items"],
+  ["flex-nowrap","Flexbox","Prevents flex items from wrapping onto multiple lines.","flex-wrap: nowrap;","no wrap, flex items"],
+  ["flex-1","Flexbox","Allows an item to grow and shrink as needed, ignoring its initial size.","flex: 1;","grow, expand, flexible, width"],
+  ["flex-auto","Flexbox","Allows an item to grow and shrink based on its initial size.","flex: auto;","grow, shrink, flexible"],
+  ["flex-none","Flexbox","Prevents an item from growing or shrinking.","flex: none;","fixed size, no grow, no shrink"],
+  ["grow","Flexbox","Allows an item to grow to fill available space.","flex-grow: 1;","expand, fill space, flex"],
+  ["grow-0","Flexbox","Prevents an item from growing.","flex-grow: 0;","no expand, flex"],
+  ["shrink","Flexbox","Allows an item to shrink when space is limited.","flex-shrink: 1;","shrink, flex, small"],
+  ["shrink-0","Flexbox","Prevents an item from shrinking.","flex-shrink: 0;","fixed size, no shrink"],
+  ["items-start","Flexbox","Aligns items to the start of the cross axis.","align-items: flex-start;","align, top, cross axis"],
+  ["items-center","Flexbox","Centers items along the cross axis.","align-items: center;","align, center, vertical center"],
+  ["items-end","Flexbox","Aligns items to the end of the cross axis.","align-items: flex-end;","align, bottom, cross axis"],
+  ["items-baseline","Flexbox","Aligns items along their text baselines.","align-items: baseline;","baseline, typography, align"],
+  ["items-stretch","Flexbox","Stretches items to fill the cross axis.","align-items: stretch;","stretch, fill, align"],
+  ["justify-start","Flexbox","Aligns items at the start of the main axis.","justify-content: flex-start;","align, start, main axis"],
+  ["justify-center","Flexbox","Aligns items along the main axis toward the center.","justify-content: center;","center, horizontal center, alignment"],
+  ["justify-end","Flexbox","Aligns items at the end of the main axis.","justify-content: flex-end;","end, alignment"],
+  ["justify-between","Flexbox","Distributes items evenly with space between them.","justify-content: space-between;","space, distribute, spacing"],
+  ["justify-around","Flexbox","Distributes items with space around them.","justify-content: space-around;","space, distribute"],
+  ["justify-evenly","Flexbox","Distributes items with equal spacing between and around them.","justify-content: space-evenly;","equal spacing, distribute"],
+  ["self-center","Flexbox","Aligns an individual item to the center of the cross axis.","align-self: center;","individual align, center"],
+  ["self-start","Flexbox","Aligns an individual item to the start of the cross axis.","align-self: flex-start;","individual align, start"],
+  ["self-end","Flexbox","Aligns an individual item to the end of the cross axis.","align-self: flex-end;","individual align, end"],
+
+  // Grid
+  ["grid","Grid","Creates a grid container.","display: grid;","grid, layout, columns, rows"],
+  ["inline-grid","Grid","Creates an inline grid container.","display: inline-grid;","grid, inline, layout"],
+  ["grid-cols-1","Grid","Creates a grid with one column.","grid-template-columns: repeat(1, minmax(0, 1fr));","grid, one column"],
+  ["grid-cols-2","Grid","Creates a grid with two equal columns.","grid-template-columns: repeat(2, minmax(0, 1fr));","grid, two columns, equal"],
+  ["grid-cols-3","Grid","Creates a grid with three equal columns.","grid-template-columns: repeat(3, minmax(0, 1fr));","grid, three columns, equal"],
+  ["grid-cols-4","Grid","Creates a grid with four equal columns.","grid-template-columns: repeat(4, minmax(0, 1fr));","grid, four columns, equal"],
+  ["grid-cols-12","Grid","Creates a grid with twelve equal columns.","grid-template-columns: repeat(12, minmax(0, 1fr));","grid, twelve columns"],
+  ["grid-cols-none","Grid","Removes the predefined grid column structure.","grid-template-columns: none;","grid, no columns"],
+  ["col-span-2","Grid","Makes an item span two grid columns.","grid-column: span 2 / span 2;","grid, span, width"],
+  ["col-span-full","Grid","Makes an item span all grid columns.","grid-column: 1 / -1;","grid, full width, span"],
+  ["grid-rows-2","Grid","Creates a grid with two predefined rows.","grid-template-rows: repeat(2, minmax(0, 1fr));","grid, two rows"],
+  ["place-items-center","Grid","Centers grid items along both axes.","place-items: center;","grid, center, align"],
+  ["place-content-center","Grid","Centers grid content along both axes.","place-content: center;","grid, content, center"],
+  ["gap-4","Grid","Sets a gap of one rem between grid or flex items.","gap: 1rem;","gap, spacing, grid, flex"],
+  ["gap-x-4","Grid","Sets horizontal spacing between grid or flex items.","column-gap: 1rem;","horizontal gap, spacing"],
+  ["gap-y-4","Grid","Sets vertical spacing between grid or flex items.","row-gap: 1rem;","vertical gap, spacing"],
+
+  // Spacing
+  ["p-4","Spacing","Adds one rem of padding on all sides.","padding: 1rem;","padding, inner space, spacing"],
+  ["px-4","Spacing","Adds horizontal padding on the left and right.","padding-inline: 1rem;","padding, horizontal, left, right"],
+  ["py-4","Spacing","Adds vertical padding on the top and bottom.","padding-block: 1rem;","padding, vertical, top, bottom"],
+  ["pt-4","Spacing","Adds padding to the top.","padding-top: 1rem;","padding, top"],
+  ["pb-4","Spacing","Adds padding to the bottom.","padding-bottom: 1rem;","padding, bottom"],
+  ["pl-4","Spacing","Adds padding to the left.","padding-left: 1rem;","padding, left"],
+  ["pr-4","Spacing","Adds padding to the right.","padding-right: 1rem;","padding, right"],
+  ["m-4","Spacing","Adds one rem of margin on all sides.","margin: 1rem;","margin, outer space"],
+  ["mx-auto","Spacing","Centers an element horizontally using automatic inline margins.","margin-inline: auto;","center, horizontal margin"],
+  ["mt-4","Spacing","Adds margin to the top.","margin-top: 1rem;","margin, top"],
+  ["mb-4","Spacing","Adds margin to the bottom.","margin-bottom: 1rem;","margin, bottom"],
+  ["ml-4","Spacing","Adds margin to the left.","margin-left: 1rem;","margin, left"],
+  ["mr-4","Spacing","Adds margin to the right.","margin-right: 1rem;","margin, right"],
+  ["space-x-4","Spacing","Adds horizontal spacing between direct child elements.","margin-left: 1rem; (subsequent children)","spacing, horizontal, children"],
+  ["space-y-4","Spacing","Adds vertical spacing between direct child elements.","margin-top: 1rem; (subsequent children)","spacing, vertical, children"],
+
+  // Sizing
+  ["w-full","Sizing","Sets the width to 100% of the containing block.","width: 100%;","width, full width, fill"],
+  ["w-screen","Sizing","Sets the width to 100vw.","width: 100vw;","width, viewport, screen"],
+  ["w-auto","Sizing","Sets the width to auto.","width: auto;","width, automatic"],
+  ["w-fit","Sizing","Sets the width to fit-content.","width: fit-content;","width, fit, content"],
+  ["h-full","Sizing","Sets the height to 100% of the containing block.","height: 100%;","height, fill"],
+  ["h-screen","Sizing","Sets the height to 100vh.","height: 100vh;","height, viewport, screen"],
+  ["h-auto","Sizing","Sets the height to auto.","height: auto;","height, automatic"],
+  ["min-h-screen","Sizing","Sets the minimum height to 100vh.","min-height: 100vh;","minimum height, screen"],
+  ["max-w-md","Sizing","Sets the maximum width to the medium breakpoint size.","max-width: 28rem;","maximum width, limit, container"],
+  ["max-w-xl","Sizing","Sets the maximum width to the extra large breakpoint size.","max-width: 36rem;","maximum width, limit"],
+  ["max-w-2xl","Sizing","Sets the maximum width to two extra large breakpoint size.","max-width: 42rem;","maximum width, limit"],
+  ["max-w-6xl","Sizing","Sets the maximum width to six extra large breakpoint size.","max-width: 72rem;","maximum width, limit"],
+  ["size-10","Sizing","Sets both width and height to 2.5rem.","width: 2.5rem; height: 2.5rem;","width, height, square"],
+
+  // Typography
+  ["text-xs","Typography","Sets the font size to extra small.","font-size: 0.75rem;","font size, small"],
+  ["text-sm","Typography","Sets the font size to small.","font-size: 0.875rem;","font size, small"],
+  ["text-base","Typography","Sets the font size to the default base size.","font-size: 1rem;","font size, normal"],
+  ["text-lg","Typography","Sets the font size to large.","font-size: 1.125rem;","font size, large"],
+  ["text-xl","Typography","Sets the font size to extra large.","font-size: 1.25rem;","font size, large"],
+  ["text-2xl","Typography","Sets the font size to two extra large.","font-size: 1.5rem;","font size, large"],
+  ["text-3xl","Typography","Sets the font size to three extra large.","font-size: 1.875rem;","font size, large"],
+  ["font-thin","Typography","Sets the font weight to thin.","font-weight: 100;","font, weight, thin"],
+  ["font-normal","Typography","Sets the font weight to normal.","font-weight: 400;","font, weight"],
+  ["font-medium","Typography","Sets the font weight to medium.","font-weight: 500;","font, weight"],
+  ["font-semibold","Typography","Sets the font weight to semibold.","font-weight: 600;","font, bold"],
+  ["font-bold","Typography","Sets the font weight to bold.","font-weight: 700;","font, bold"],
+  ["font-extrabold","Typography","Sets the font weight to extra bold.","font-weight: 800;","font, bold"],
+  ["text-left","Typography","Aligns text to the left.","text-align: left;","text alignment, left"],
+  ["text-center","Typography","Aligns text to the center.","text-align: center;","text alignment, center"],
+  ["text-right","Typography","Aligns text to the right.","text-align: right;","text alignment, right"],
+  ["italic","Typography","Styles text in italics.","font-style: italic;","text, italic"],
+  ["not-italic","Typography","Resets text to a normal font style.","font-style: normal;","text, normal"],
+  ["underline","Typography","Underlines text.","text-decoration-line: underline;","text, decoration"],
+  ["line-through","Typography","Draws a line through the text.","text-decoration-line: line-through;","text, strike"],
+  ["no-underline","Typography","Removes text decoration.","text-decoration-line: none;","text, decoration"],
+  ["leading-none","Typography","Sets line height to 1.","line-height: 1;","line height, compact"],
+  ["leading-relaxed","Typography","Sets a relaxed line height for readability.","line-height: 1.625;","line height, readable"],
+  ["tracking-tight","Typography","Decreases letter spacing.","letter-spacing: -0.025em;","letter spacing, tight"],
+  ["tracking-wide","Typography","Increases letter spacing.","letter-spacing: 0.025em;","letter spacing, wide"],
+  ["truncate","Typography","Truncates overflowing text with an ellipsis.","overflow: hidden; text-overflow: ellipsis; white-space: nowrap;","text, overflow, ellipsis"],
+  ["break-words","Typography","Allows long words to break when necessary.","overflow-wrap: break-word;","text, wrapping, words"],
+  ["whitespace-nowrap","Typography","Prevents text from wrapping onto multiple lines.","white-space: nowrap;","text, wrapping, no wrap"],
+
+  // Colors
+  ["text-black","Colors","Sets the text color to black.","color: #000;","color, text, black"],
+  ["text-white","Colors","Sets the text color to white.","color: #fff;","color, text, white"],
+  ["text-gray-500","Colors","Sets the text color to a medium gray.","color: var(--color-gray-500);","color, text, gray"],
+  ["text-slate-500","Colors","Sets the text color to slate gray.","color: var(--color-slate-500);","color, text, slate"],
+  ["bg-white","Colors","Sets the background color to white.","background-color: #fff;","background, white"],
+  ["bg-black","Colors","Sets the background color to black.","background-color: #000;","background, black"],
+  ["bg-blue-500","Colors","Sets the background color to a medium blue.","background-color: var(--color-blue-500);","background, blue"],
+  ["bg-red-500","Colors","Sets the background color to a medium red.","background-color: var(--color-red-500);","background, red"],
+  ["bg-green-500","Colors","Sets the background color to a medium green.","background-color: var(--color-green-500);","background, green"],
+  ["bg-gray-100","Colors","Sets the background color to a very light gray.","background-color: var(--color-gray-100);","background, gray, light"],
+  ["bg-slate-900","Colors","Sets the background color to a very dark slate.","background-color: var(--color-slate-900);","background, slate, dark"],
+  ["bg-transparent","Colors","Sets the background color to transparent.","background-color: transparent;","background, transparent"],
+  ["bg-gradient-to-r","Colors","Creates a background gradient flowing from left to right.","background-image: linear-gradient(to right, ...);","gradient, background, horizontal"],
+  ["from-blue-500","Colors","Defines the starting color of a gradient.","--tw-gradient-from: var(--color-blue-500);","gradient, start color"],
+  ["to-indigo-500","Colors","Defines the ending color of a gradient.","--tw-gradient-to: var(--color-indigo-500);","gradient, end color"],
+
+  // Borders
+  ["border","Borders","Adds a border with the default width.","border-width: 1px;","border, outline"],
+  ["border-2","Borders","Adds a border with a width of 2 pixels.","border-width: 2px;","border, width"],
+  ["border-0","Borders","Removes the border width.","border-width: 0;","border, remove"],
+  ["border-gray-200","Borders","Sets the border color to light gray.","border-color: var(--color-gray-200);","border, color, gray"],
+  ["rounded","Borders","Applies a default border radius.","border-radius: 0.25rem;","border, rounded, corners"],
+  ["rounded-lg","Borders","Applies a large border radius.","border-radius: 0.5rem;","border, rounded, corners"],
+  ["rounded-xl","Borders","Applies an extra large border radius.","border-radius: 0.75rem;","border, rounded, corners"],
+  ["rounded-2xl","Borders","Applies a two extra large border radius.","border-radius: 1rem;","border, rounded, corners"],
+  ["rounded-full","Borders","Creates fully rounded corners.","border-radius: 9999px;","border, circle, rounded"],
+  ["rounded-none","Borders","Removes border radius.","border-radius: 0;","border, square"],
+
+  // Effects
+  ["shadow","Effects","Applies a default box shadow.","box-shadow: var(--shadow-md);","shadow, elevation"],
+  ["shadow-sm","Effects","Applies a small box shadow.","box-shadow: var(--shadow-sm);","shadow, small"],
+  ["shadow-lg","Effects","Applies a large box shadow.","box-shadow: var(--shadow-lg);","shadow, large"],
+  ["shadow-xl","Effects","Applies an extra large box shadow.","box-shadow: var(--shadow-xl);","shadow, large"],
+  ["opacity-50","Effects","Sets the opacity to 50 percent.","opacity: 0.5;","opacity, transparent"],
+  ["opacity-100","Effects","Sets the opacity to 100 percent.","opacity: 1;","opacity, visible"],
+  ["blur","Effects","Applies a default blur filter.","filter: blur(8px);","blur, filter"],
+  ["blur-sm","Effects","Applies a small blur filter.","filter: blur(4px);","blur, filter"],
+  ["backdrop-blur","Effects","Blurs the content behind an element.","backdrop-filter: blur(8px);","backdrop, blur, glass"],
+
+  // Interactivity
+  ["cursor-pointer","Interactivity","Changes the cursor to a pointer.","cursor: pointer;","cursor, clickable"],
+  ["cursor-not-allowed","Interactivity","Indicates an unavailable or disabled action.","cursor: not-allowed;","cursor, disabled"],
+  ["pointer-events-none","Interactivity","Prevents an element from receiving pointer events.","pointer-events: none;","interaction, click, disabled"],
+  ["select-none","Interactivity","Prevents text selection.","user-select: none;","selection, interaction"],
+  ["transition","Interactivity","Adds transition effects to supported properties.","transition-property: color, background-color, border-color, ...;","transition, animation, smooth"],
+  ["transition-all","Interactivity","Transitions all properties that can be transitioned.","transition-property: all;","transition, smooth"],
+  ["duration-300","Interactivity","Sets the transition duration to 300 milliseconds.","transition-duration: 300ms;","transition, time, duration"],
+  ["ease-in-out","Interactivity","Uses a smooth acceleration and deceleration timing function.","transition-timing-function: ease-in-out;","transition, timing"],
+  ["animate-spin","Interactivity","Applies a continuous spinning animation.","animation: spin 1s linear infinite;","animation, spin, loading"],
+  ["animate-pulse","Interactivity","Applies a pulsing opacity animation.","animation: pulse 2s cubic-bezier(...) infinite;","animation, pulse, loading"],
+  ["animate-bounce","Interactivity","Applies a bouncing animation.","animation: bounce 1s infinite;","animation, bounce"],
+  ["z-10","Interactivity","Sets the stacking order to 10.","z-index: 10;","z index, stacking"],
+  ["z-50","Interactivity","Sets the stacking order to 50.","z-index: 50;","z index, stacking"],
+  ["overflow-hidden","Interactivity","Clips content that overflows the element's box.","overflow: hidden;","overflow, clip"],
+  ["overflow-auto","Interactivity","Adds scrollbars when content overflows.","overflow: auto;","overflow, scrolling"],
+  ["overflow-y-auto","Interactivity","Enables vertical scrolling when content overflows.","overflow-y: auto;","overflow, vertical scroll"],
+  ["fixed","Position","Positions an element relative to the viewport.","position: fixed;","position, viewport"],
+  ["absolute","Position","Positions an element relative to its positioned ancestor.","position: absolute;","position, overlay"],
+  ["relative","Position","Establishes a positioning context for descendants.","position: relative;","position, context"],
+  ["sticky","Position","Positions an element according to the scroll position.","position: sticky;","position, scrolling"],
+  ["inset-0","Position","Sets all inset offsets to zero.","inset: 0;","position, top, left, right, bottom"],
+  ["top-0","Position","Sets the top offset to zero.","top: 0;","position, top"],
+  ["left-0","Position","Sets the left offset to zero.","left: 0;","position, left"],
+
+  // Responsive / modifiers
+  ["sm:","Responsive","Applies a utility at the small breakpoint and above (640px by default).","@media (width >= 640px)","responsive, mobile, breakpoint"],
+  ["md:","Responsive","Applies a utility at the medium breakpoint and above (768px by default).","@media (width >= 768px)","responsive, tablet, breakpoint"],
+  ["lg:","Responsive","Applies a utility at the large breakpoint and above (1024px by default).","@media (width >= 1024px)","responsive, desktop, breakpoint"],
+  ["xl:","Responsive","Applies a utility at the extra large breakpoint and above (1280px by default).","@media (width >= 1280px)","responsive, breakpoint"],
+  ["2xl:","Responsive","Applies a utility at the 2XL breakpoint and above (1536px by default).","@media (width >= 1536px)","responsive, breakpoint"],
+  ["hover:","Responsive","Applies a utility when the element is hovered.","&:hover","hover, interaction"],
+  ["focus:","Responsive","Applies a utility when the element receives focus.","&:focus","focus, interaction"],
+  ["active:","Responsive","Applies a utility while the element is active.","&:active","active, interaction"],
+  ["disabled:","Responsive","Applies a utility when the element is disabled.","&:disabled","disabled, interaction"],
+  ["dark:","Responsive","Applies a utility when dark mode is active.","@media (prefers-color-scheme: dark) or dark variant","dark mode, theme"]
+];
+
+const categories = ["All", ...new Set(data.map(item => item[1]))];
+let activeCategory = "All";
+
+const searchInput = document.getElementById("search");
+const results = document.getElementById("results");
+const categoryBox = document.getElementById("categories");
+const resultCount = document.getElementById("resultCount");
+const empty = document.getElementById("empty");
+
+function escapeHTML(str) {
+  return String(str).replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[ch]));
+}
+
+function renderCategories() {
+  categoryBox.innerHTML = categories.map(category => `
+    <button
+      data-category="${escapeHTML(category)}"
+      class="category-btn rounded-full border px-3 py-2 text-sm font-medium transition
+      ${category === activeCategory
+        ? 'border-indigo-600 bg-indigo-600 text-white'
+        : 'border-slate-200 bg-white text-slate-600 hover:border-indigo-300'}">
+      ${escapeHTML(category)}
+    </button>
+  `).join("");
+
+  categoryBox.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      activeCategory = button.dataset.category;
+      renderCategories();
+      renderResults();
+    });
+  });
+}
+
+function renderResults() {
+  const query = searchInput.value.trim().toLowerCase();
+
+  const filtered = data.filter(item => {
+    const searchable = item.join(" ").toLowerCase();
+    const categoryMatch = activeCategory === "All" || item[1] === activeCategory;
+    const queryMatch = !query || searchable.includes(query);
+    return categoryMatch && queryMatch;
+  });
+
+  resultCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'result' : 'results'}`;
+
+  empty.classList.toggle("hidden", filtered.length !== 0);
+
+  results.innerHTML = filtered.map(item => `
+    <article class="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-indigo-300 hover:shadow-md">
+      <div class="mb-3 flex items-center justify-between gap-3">
+        <code class="rounded-lg bg-slate-900 px-3 py-2 text-sm font-semibold text-indigo-300">${escapeHTML(item[0])}</code>
+        <span class="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-500">${escapeHTML(item[1])}</span>
+      </div>
+
+      <p class="mb-4 text-sm leading-relaxed text-slate-700">
+        ${escapeHTML(item[2])}
+      </p>
+
+      <div class="mb-4 rounded-xl bg-slate-50 p-3">
+        <p class="mb-1 text-xs font-semibold uppercase tracking-wider text-slate-400">CSS equivalent</p>
+        <code class="text-sm text-slate-700 break-all">${escapeHTML(item[3])}</code>
+      </div>
+
+      <div class="flex items-center justify-between gap-2">
+        <button data-copy="${escapeHTML(item[0])}"
+          class="copy-btn rounded-lg bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-100">
+          Copy class
+        </button>
+        <button data-copy="${escapeHTML(item[3])}"
+          class="copy-btn rounded-lg px-3 py-2 text-sm text-slate-500 hover:bg-slate-100">
+          Copy CSS
+        </button>
+      </div>
+    </article>
+  `).join("");
+
+  results.querySelectorAll(".copy-btn").forEach(button => {
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        const original = button.textContent;
+        button.textContent = "Copied!";
+        setTimeout(() => button.textContent = original, 1200);
+      } catch {
+        alert("Unable to copy. Please copy manually.");
+      }
+    });
+  });
+}
+
+searchInput.addEventListener("input", renderResults);
+
+document.getElementById("clear").addEventListener("click", () => {
+  searchInput.value = "";
+  activeCategory = "All";
+  renderCategories();
+  renderResults();
+  searchInput.focus();
+});
+
+renderCategories();
+renderResults();
+</script>
+</body>
+</html>
