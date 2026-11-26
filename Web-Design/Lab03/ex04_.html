@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 03 - Sign-up Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <form>
+    <h1>Create an account</h1>
+    <div>
+      <label for="name">Full name</label>
+      <input id="name" name="name" type="text" required placeholder="Your name">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="alex@example.com" aria-describedby="email-help">
+      <p id="email-help">Please enter a valid email address.</p>
+    </div>
+    <div>
+      <label>Choose a plan</label>
+      <div>
+        <label>
+          <input type="radio" name="plan" value="student" checked>
+          <span>Student</span>
+          <span>Free</span>
+        </label>
+        <label>
+          <input type="radio" name="plan" value="pro">
+          <span>Pro</span>
+          <span>$9 / month</span>
+        </label>
+      </div>
+    </div>
+    <label>
+      <input type="checkbox" name="terms" required>
+      I agree to the terms of use
+    </label>
+    <button type="submit">
+      Sign up
+    </button>
+    <button type="button" disabled>Disabled state preview</button>
+    <p>Practice form: no account is created.</p>
+  </form>
+</body>
+</html>
