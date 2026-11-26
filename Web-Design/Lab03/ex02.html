@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 03 - Bookstore</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-100 text-slate-800">
+    <!-- Header -->
+    <header class="bg-slate-900 sticky top-0 z-50 text-white shadow">
+        <nav class="flex items-center justify-between flex-wrap p-4">
+            <a href="#" class="text-2xl font-extrabold">MY <span class="text-sky-400">BOOKSTORE</span></a>
+            <ul class="flex gap-6">
+                <li><a href="#" class="hover:text-sky-400">Home</a></li>
+                <li><a href="#" class="hover:text-sky-400">Categories</a></li>
+                <li><a href="#" class="hover:text-sky-400">Promotions</a></li>
+                <li><a href="#" class="hover:text-sky-400">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="container mx-auto px-4 py-10">
+        <h1 class="text-3xl font-bold text-sky-700 text-center">New Arrivals</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8"> <!-- Books -->
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <span class="absolute top-3 left-3 rounded-full bg-red-500 px-2 py-1 text-xs text-white">New</span>
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book1.png" alt="HTML &amp; CSS">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">HTML &amp; CSS</h3>
+                    <p class="text-sm text-slate-500">Le Viet Tuan</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">120,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book2.png" alt="Javascript">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">Javascript</h3>
+                    <p class="text-sm text-slate-500">Duong Huu Thanh</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">150,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <span class="absolute top-3 left-3 rounded-full bg-red-500 px-2 py-1 text-xs text-white">New</span>
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book3.png" alt="Tailwind CSS">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">Tailwind CSS</h3>
+                    <p class="text-sm text-slate-500">Duong Huu Thanh</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">135,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book4.png" alt="Python">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">Python</h3>
+                    <p class="text-sm text-slate-500">Nguyen Thi Tram Anh</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">110,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book5.png" alt="Java OOP">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">Java OOP</h3>
+                    <p class="text-sm text-slate-500">Duong Huu Thanh</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">160,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book6.png" alt="Database">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">Database</h3>
+                    <p class="text-sm text-slate-500">Le Viet Tuan</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">140,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <span class="absolute top-3 left-3 rounded-full bg-red-500 px-2 py-1 text-xs text-white">New</span>
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book7.png" alt="Networking">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">Networking</h3>
+                    <p class="text-sm text-slate-500">Nguyen Thi Tram Anh</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">125,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden relative transition duration-300 hover:-translate-y-1 hover:shadow-xl"> <!-- Single book -->
+                <img class="w-full aspect-[3/4] object-cover" src="./images/book8.png" alt="AI Basic">
+                <div class="p-4">
+                    <h3 class="font-semibold text-slate-800 truncate">AI Basic</h3>
+                    <p class="text-sm text-slate-500">Le Viet Tuan</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="text-lg font-bold text-sky-600">180,000 VND</span>
+                        <button class="px-3 py-1.5 rounded bg-sky-600 text-white text-sm hover:bg-sky-700 cursor-pointer">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center text-sm text-white bg-slate-900">&copy; 2026 My Bookstore</footer>
+</body>
+</html>
